@@ -1,0 +1,3 @@
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/build/CMakeFiles/edit_cache.dir
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/build/CMakeFiles/rebuild_cache.dir
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/build/CMakeFiles/Demo.dir

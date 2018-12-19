@@ -1,0 +1,9 @@
+# https://shimo.im/sheet/w3yUy39uNKs0J7DT
+# 这里介绍使用python代码实现语音的播放,首先使用科大讯飞的离线语音合成代码,制作所需的
+# 语音文本,即生成对应的wav格式文件.
+# 随后,需要在ubuntu中安装对应的环境包,可以在终端播放语音:
+# sudo apt-get install sox
+# sudo apt-get install sox libsox-fmt-all\
+# play *mp3     # 此时,可以播放指定的文件了
+
+# Speech_Class.py           # 语音播报,这里定义多线程操作,是的运行流畅

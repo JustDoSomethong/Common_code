@@ -1,0 +1,16 @@
+Result: [ <?xml version='1.0' encoding='utf-8' standalone='yes' ?><nlp>
+  <version>1.1</version>
+  <rawtext>我要切换关注检测模式</rawtext>
+  <confidence>70</confidence>
+  <engine>local</engine>
+  <result>
+    <focus>want|dialpre|contact</focus>
+    <confidence>77|60|74</confidence>
+    <object>
+      <want id="65535">我要</want>
+      <dialpre id="10002">切换</dialpre>
+      <contact id="65336">关注检测模式</contact>
+    </object>
+  </result>
+</nlp>
+ ]

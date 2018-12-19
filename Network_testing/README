@@ -1,0 +1,11 @@
+# eval_net.py           # 实时捕获摄像头输入,每帧图像送入分类网络,输出
+# plot_roc.py		# 绘制 ROC 曲线
+# eval_net_for_speech.py        # 实时捕获摄像头输入,每帧图像送入分类网络,输出且保存语音信息
+# test_for_folder.py	# 验证文件夹下的图像,进一步筛选图像
+# test_for_folder_for_detection         # 检测文件夹下的图像,输出检测结果
+# test_for_folder_for_detection_read_val	# 检测测试集图像,输出检测结果
+# visualize_deepfeature.py	# 查看center_loss的作用,即ip1层的输出结果
+# eval_detection_net.py    # 实时捕获摄像头输入,每帧图像送入检测网络,输出人检测结果
+# eval_detection_classification_net.py      # 实时捕获摄像头输入,每帧图像送入检测网络,输出人检测结果,随后送入分类网络,输出
+# eval_detection_classification_speech_net.py      # 检测+分类+语音
+# class 		# 模块继承,一个模块

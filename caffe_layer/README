@@ -1,0 +1,3 @@
+# accuracy_layer.cpp		# 该层为准确率层,在测试阶段可以输出整体准确率以及每一个类别的准确率
+# python_confmat.py		# 该层为准确率层,在测试阶段可以输出准确率以及混淆矩阵
+# center_loss			# 改层为loss层,在训练阶段缩类内距离

@@ -1,0 +1,16 @@
+############## intra_class_center_loss ###############
+layer {
+  name: "intra_class_center_loss"
+  type: "IntraClassCenterLoss"
+  bottom: "fc8_score"
+  bottom: "label"
+  top: "intra_class_center_loss"
+  itra_class_center_loss_param {
+    num_output: 12
+    margin: 5.0
+    center_filler {
+      type: "xavier"
+    }
+  }
+  loss_weight: 0.00001
+}

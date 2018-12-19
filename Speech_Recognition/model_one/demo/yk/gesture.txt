@@ -1,0 +1,3 @@
+finger 0
+fist 1
+palm 2

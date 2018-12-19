@@ -1,0 +1,19 @@
+GCC         = g++ -std=c++11
+BOOST       = /usr/local/boost_1_63_0/
+CFLAGS		= -Wall -Wconversion -O3 `pkg-config --cflags opencv` -I${BOOST} -I${BOOST}/boost
+LIBS 		= `pkg-config --libs opencv` -L${BOOST}/libs/ -lboost_system -lpthread -lboost_thread
+EXE	        = Demo 
+OBJ	        = main.o ScalableMST.o   
+
+default: $(EXE)
+main.o: main.cpp all.h ScalableMST.h
+	$(GCC) $(CFLAGS) -c -o $@ main.cpp $(LIBS)
+
+ScalableMST.o: ScalableMST.cpp all.h ScalableMST.h
+	$(GCC) $(CFLAGS) -c -o $@ ScalableMST.cpp $(LIBS)
+
+$(EXE): $(OBJ)
+	$(GCC) $(CFLAGS) $(OBJ) -o $(EXE) $(LIBS)
+
+clean:
+	rm -rf *.o $(EXE)

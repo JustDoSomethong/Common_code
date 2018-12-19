@@ -1,0 +1,23 @@
+layer {
+  type: 'Python'
+  name: 'py_accuracy'
+  top: 'py_accuracy'
+  bottom: 'fc8_score'
+  bottom: 'label'
+  python_param {
+    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
+    module: 'python_confmat'
+    # the layer name -- the class name in the module
+    layer: 'PythonConfMat'
+    # this is the number of test iterations, it must be the same as defined in the solver.
+    param_str: '{"test_iter":42}'
+  }
+  include {
+    phase: TEST
+  }
+}
+
+
+#!/usr/bin/env sh
+set -e
+/home/ling/YH/caffe/build/tools/caffe test --gpu=0 --model=/home/ling/桌面/vgg_16/test_confmat.prototxt --weights=/home/ling/桌面/vgg_16/output/case_two.caffemodel --iterations=42

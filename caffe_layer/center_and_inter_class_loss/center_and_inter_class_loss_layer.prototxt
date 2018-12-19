@@ -1,0 +1,17 @@
+############## center_and_inter_class_loss ###############
+layer {
+  name: "center_and_inter_class_loss"
+  type: "CenterAndInterClassLoss"
+  bottom: "fc8_score"
+  bottom: "label"
+  top: "center_and_inter_class_loss"
+  center_and_inter_class_loss_param {
+    num_output: 12
+    margin: 5.0
+    alpha_a: 0.1
+    center_filler {
+      type: "xavier"
+    }
+  }
+  loss_weight: 0.01
+}

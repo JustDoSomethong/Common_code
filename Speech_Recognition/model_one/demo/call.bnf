@@ -1,0 +1,14 @@
+﻿#BNF+IAT 1.0 UTF-8;
+!grammar call;
+!slot <want>;
+!slot <dialpre>;
+!slot <dialsuf>;
+!slot <contact>;
+
+!start <callstart>;
+<callstart>:[<want>]<dial>;
+<want>:我想|我要|请|帮我|我想要|请帮我;
+<dial>:<dialpre><contact>[<dialsuf>];
+<dialpre>:切换到!id(10001)|切换!id(10002);
+<dialsuf>:切换关注检测模式!id(10001)|切换手势检测模式!id(10002)|切换状态检测模式!id(10003);
+<contact>:关注检测模式!id(65336)|手势检测模式!id(65337)|状态检测模式!id(65338)|语音检测模式!id(65339);

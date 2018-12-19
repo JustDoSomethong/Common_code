@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/build",
+  "command": "/usr/bin/g++-5    -I/usr/local/include/opencv -I/usr/local/include  -g   -std=c++11 -o CMakeFiles/Demo.dir/Speech.cpp.o -c /home/pro/WORK/SDK/Linux_aitalk1195_598422f9/Speech.cpp",
+  "file": "/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/Speech.cpp"
+}
+]

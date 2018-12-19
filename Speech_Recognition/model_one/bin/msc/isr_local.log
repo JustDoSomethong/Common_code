@@ -1,0 +1,72 @@
+[2018/07/03 15:42:56 616] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:56 617] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:56 619] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:56 620] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:56 711] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:56 712] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:56 713] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:56 714] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:56 822] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:56 823] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:56 825] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:56 826] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:56 926] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:56 926] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:56 928] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:56 929] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 031] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 033] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 035] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 035] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 134] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 137] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 138] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 139] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 242] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 244] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 245] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 246] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 347] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 350] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 355] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 356] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 456] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 457] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 458] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 459] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 574] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 575] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 580] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 582] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 585] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 587] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 589] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 595] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 674] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 674] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 676] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 677] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 778] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 779] isr_local  1558 auwl =   3200  
+[2018/07/03 15:42:57 782] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 782] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 883] isr_local  2126 ASR_LOCAL_MSG_AUW  
+[2018/07/03 15:42:57 885] isr_local  1558 auwl =   2880  
+[2018/07/03 15:42:57 889] isr_local  2135 esr_audio_write, ret =  nil  
+[2018/07/03 15:42:57 890] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:57 912] isr_local  669  final result will throw out next!  
+[2018/07/03 15:42:57 918] isr_local  679  nRecognizeState:  1  
+[2018/07/03 15:42:57 920] isr_local  680  nConfidenceScore:  70  
+[2018/07/03 15:42:57 921] isr_local  728  result_type :   xml  
+[2018/07/03 15:42:57 921] isr_local  729  result_encoding :   UTF-8  
+[2018/07/03 15:42:57 922] isr_local  730  is iat :   false  
+[2018/07/03 15:42:57 923] isr_local  469  item_count:1  
+[2018/07/03 15:42:57 925] isr_local  469  item_count:1  
+[2018/07/03 15:42:57 926] isr_local  469  item_count:1  
+[2018/07/03 15:42:57 928] isr_local  293  nil  
+[2018/07/03 15:42:57 934] isr_local  675  recognized end!  
+[2018/07/03 15:42:58 111] isr_local  2140 ASR_LOCAL_MSG_SSE  
+[2018/07/03 15:42:58 117] isr_local  1518 esr_session_end | esr_obj:stop ret =  0  
+[2018/07/03 15:42:58 128] isr_local  2142 esr_session_end, ret =  0  
+[2018/07/03 15:42:58 138] isr_local  2265 last gc at  1530603667  
+[2018/07/03 15:42:58 215] isr_local  638  local engine already stopped! stop cmd ignored  

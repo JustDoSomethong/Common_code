@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_cmn.h
+msp_types.h
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_types.h
+
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_errors.h
+
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_types.h
+
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/qisr.h
+msp_types.h
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_types.h
+
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./samples/asr_record_sample/speech_recognizer.h
+
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/Speech.cpp
+iostream
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+errno.h
+-
+unistd.h
+-
+./include/qisr.h
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/qisr.h
+./include/msp_cmn.h
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_cmn.h
+./include/msp_errors.h
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./include/msp_errors.h
+./samples/asr_record_sample/speech_recognizer.h
+/home/pro/WORK/SDK/Linux_aitalk1195_598422f9/./samples/asr_record_sample/speech_recognizer.h
+

@@ -1,0 +1,15 @@
+Result: [ <?xml version='1.0' encoding='utf-8' standalone='yes' ?><nlp>
+  <version>1.1</version>
+  <rawtext>切换到状态检测模式</rawtext>
+  <confidence>51</confidence>
+  <engine>local</engine>
+  <result>
+    <focus>dialpre|contact</focus>
+    <confidence>62|46</confidence>
+    <object>
+      <dialpre id="10001">切换到</dialpre>
+      <contact id="65338">状态检测模式</contact>
+    </object>
+  </result>
+</nlp>
+ ]
