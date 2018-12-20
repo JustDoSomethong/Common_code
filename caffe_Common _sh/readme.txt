@@ -14,7 +14,8 @@ caffe常用sh/test_python_for_picture.py	文件为caffe测试程序,是python文
 caffe常用sh/test_cpp.cpp		文件为caffe测试程序,是cpp文件,是单张图片的测试程序
 caffe常用sh/test_cpp_for_folder.cpp	文件为caffe测试程序,是cpp文件,是测试文件夹中所有图片
 caffe常用sh/Calculate_accuracy.py	文件为py程序,计算准确率
-caffe常用sh/fuse_model.py		文件为py程序，融合模型，生成融合后的权重。
+caffe常用sh/fuse_model.py		文件为py程序，融合模型，生成融合后的权重
+caffe常用sh/compute_flops_params.py	文件为py程序，计算网络模型的参数，目前没有FLOPS代码
 
 
 caffe常用sh/Show_Pics.py		文件为python程序,可以同时在一个窗口中显示多张图片
