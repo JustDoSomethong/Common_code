@@ -1,0 +1,15 @@
+net : "fuse_even_odd_train_val.prototxt"
+test_iter: 360
+test_interval: 702
+test_initialization: false
+base_lr: 0.000001
+lr_policy: "multistep"
+gamma: 10
+stepvalue: 50
+display: 1
+max_iter: 100
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 5000
+snapshot_prefix: "./output/"
+solver_mode: GPU

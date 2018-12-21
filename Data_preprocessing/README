@@ -1,6 +1,7 @@
 # Preprocessing.py      # 完整的图像预处理
 # Creat_Folders.py      # 根据输入格式,创建输出文件夹
 # Redundancy.py         # 根据输入文件夹的内容,去除文件中子文件的冗余图像
+# Remove_picture.py	# 删除尺寸不合适的图像
 # Rename.py             # 对文件夹下子文件中图像进行重命名,并生成全新的文件,格式为img_类别_id.jpg
 # Resize_Crop.py        # 对文件夹下子文件中图像进行缩放并crop,保证缩放后图像没有发生拉伸
 # Data_Augmentation.py  # 数据增强模块,如:颜色抖动增加模型对光照强度的变化

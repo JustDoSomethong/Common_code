@@ -3,6 +3,7 @@ caffe常用sh/covert.sh			文件resize图片,改变图片的大小
 caffe常用sh/create_lmdb.sh		文件产生lmdb文件,输入为txt文件,存有图像的路径以及标签(convert_imageset)
 caffe常用sh/make_imagenet_mean.sh	文件获取图像的均值,输入为lmdb文件train_lmdb(compute_image_mean)
 caffe常用sh/solver.prototxt		文件为训练模型时的参数设置.step设置学习率下降
+caffe常用sh/solver_learning_rate.prototxt	文件为训练模型时的参数设置,寻找最优初始学习率
 caffe常用sh/multistep_solver.prototxt	文件为训练模型时的参数设置.multistep设置学习率下降
 caffe常用sh/train.sh			文件用caffe训练网络(caffe train)
 caffe常用sh/test.sh			文件用caffe测试网络(caffe test)
@@ -16,7 +17,6 @@ caffe常用sh/test_cpp_for_folder.cpp	文件为caffe测试程序,是cpp文件,�
 caffe常用sh/Calculate_accuracy.py	文件为py程序,计算准确率
 caffe常用sh/fuse_model.py		文件为py程序，融合模型，生成融合后的权重
 caffe常用sh/compute_flops_params.py	文件为py程序，计算网络模型的参数，目前没有FLOPS代码
-
 
 caffe常用sh/Show_Pics.py		文件为python程序,可以同时在一个窗口中显示多张图片
 caffe常用sh/Picture_filter.py		文件为Windows扒图代码

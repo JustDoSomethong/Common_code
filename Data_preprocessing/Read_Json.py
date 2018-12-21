@@ -8,103 +8,104 @@ import numpy as np
 import math
 
 def json_list():
-    list = os.listdir('./openpose_data/JSON')
+    list = os.listdir('./openpose_big_data/JSON')
     return list
 
 def read_json(list):
     for img_json in list:
-        file = open(os.path.join('./openpose_data/JSON',img_json),'r')
+        file = open(os.path.join('./openpose_big_data/JSON',img_json),'r')
         # print(img_json)
         img_keypoints = json.load(file)
         if len(img_keypoints['people']) == 0:
-            # print(img_json.split('_')[1],img_json.split('_')[2])
-            img_dir = os.path.join('./openpose_data/Original_Data',img_json.split('_')[1],('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] +'.jpg'))
+            img_dir = os.path.join('./openpose_big_data/Original_Data',img_json.split('_')[1],('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] +'.jpg'))
             if os.path.exists(img_dir):
                 print(img_dir)
                 os.remove(img_dir)
-            img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-            if os.path.exists(img_keypoints_dir):
-                print(img_keypoints_dir)
-                os.remove(img_keypoints_dir)
-            keypoints_dir = os.path.join('./openpose_data/Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+            # img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+            # if os.path.exists(img_keypoints_dir):
+            #     print(img_keypoints_dir)
+            #     os.remove(img_keypoints_dir)
+            keypoints_dir = os.path.join('./openpose_big_data/Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
             if os.path.exists(keypoints_dir):
                 print(keypoints_dir)
                 os.remove(keypoints_dir)
-            Skeleton_Images_drawn_dir = os.path.join('./openpose_data/Skeleton_Images_drawn', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+            Skeleton_Images_drawn_dir = os.path.join('./openpose_big_data/Origian_images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
             if os.path.exists(Skeleton_Images_drawn_dir):
                 print(Skeleton_Images_drawn_dir)
                 os.remove(Skeleton_Images_drawn_dir)
         elif len(img_keypoints['people']) > 1:
-            # print(img_json.split('_')[1],img_json.split('_')[2])
-            img_dir = os.path.join('./openpose_data/Original_Data',img_json.split('_')[1],('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] +'.jpg'))
+            img_dir = os.path.join('./openpose_big_data/Original_Data', img_json.split('_')[1],
+                                   ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '.jpg'))
             if os.path.exists(img_dir):
                 print(img_dir)
                 os.remove(img_dir)
-            img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-            if os.path.exists(img_keypoints_dir):
-                print(img_keypoints_dir)
-                os.remove(img_keypoints_dir)
-            keypoints_dir = os.path.join('./openpose_data/Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+            # img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+            # if os.path.exists(img_keypoints_dir):
+            #     print(img_keypoints_dir)
+            #     os.remove(img_keypoints_dir)
+            keypoints_dir = os.path.join('./openpose_big_data/Skeleton_Images', (
+            'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
             if os.path.exists(keypoints_dir):
                 print(keypoints_dir)
                 os.remove(keypoints_dir)
-            Skeleton_Images_drawn_dir = os.path.join('./openpose_data/Skeleton_Images_drawn', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+            Skeleton_Images_drawn_dir = os.path.join('./openpose_big_data/Origian_images', (
+            'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
             if os.path.exists(Skeleton_Images_drawn_dir):
                 print(Skeleton_Images_drawn_dir)
                 os.remove(Skeleton_Images_drawn_dir)
+        # else:
+        #     keypoints = img_keypoints['people'][0]['pose_keypoints']
+        #     keypoints_nums = np.sum([x!=0 for x in keypoints])/3
+        #     if keypoints_nums < 10:
+        #         img_dir = os.path.join('./openpose_data/Original_Data', img_json.split('_')[1],
+        #                                ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '.jpg'))
+        #         if os.path.exists(img_dir):
+        #             print(img_dir)
+        #             os.remove(img_dir)
+        #         img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', (
+        #         'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+        #         if os.path.exists(img_keypoints_dir):
+        #             print(img_keypoints_dir)
+        #             os.remove(img_keypoints_dir)
+        #         keypoints_dir = os.path.join('./openpose_data/Skeleton_Images', (
+        #         'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+        #         if os.path.exists(keypoints_dir):
+        #             print(keypoints_dir)
+        #             os.remove(keypoints_dir)
+        #         Skeleton_Images_drawn_dir = os.path.join('./openpose_data/Skeleton_Images_drawn', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+        #         if os.path.exists(Skeleton_Images_drawn_dir):
+        #             print(Skeleton_Images_drawn_dir)
+        #             os.remove(Skeleton_Images_drawn_dir)
         else:
-            keypoints = img_keypoints['people'][0]['pose_keypoints']
-            keypoints_nums = np.sum([x!=0 for x in keypoints])/3
-            if keypoints_nums < 10:
-                img_dir = os.path.join('./openpose_data/Original_Data', img_json.split('_')[1],
-                                       ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '.jpg'))
-                if os.path.exists(img_dir):
-                    print(img_dir)
-                    os.remove(img_dir)
-                img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', (
-                'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-                if os.path.exists(img_keypoints_dir):
-                    print(img_keypoints_dir)
-                    os.remove(img_keypoints_dir)
-                keypoints_dir = os.path.join('./openpose_data/Skeleton_Images', (
-                'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-                if os.path.exists(keypoints_dir):
-                    print(keypoints_dir)
-                    os.remove(keypoints_dir)
-                Skeleton_Images_drawn_dir = os.path.join('./openpose_data/Skeleton_Images_drawn', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-                if os.path.exists(Skeleton_Images_drawn_dir):
-                    print(Skeleton_Images_drawn_dir)
-                    os.remove(Skeleton_Images_drawn_dir)
-            # else:
-            #     write_point(img_json, img_keypoints)
-        img_dir = os.path.join('./openpose_data/Original_Data', img_json.split('_')[1],('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '.jpg'))
-        if os.path.exists(img_dir):
-            img = cv2.imread(img_dir)
-            if img.shape[0]<100 or img.shape[1]<100:
-                if os.path.exists(img_dir):
-                    print(img_dir)
-                    os.remove(img_dir)
-                img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', (
-                'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-                if os.path.exists(img_keypoints_dir):
-                    print(img_keypoints_dir)
-                    os.remove(img_keypoints_dir)
-                keypoints_dir = os.path.join('./openpose_data/Skeleton_Images', (
-                'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-                if os.path.exists(keypoints_dir):
-                    print(keypoints_dir)
-                    os.remove(keypoints_dir)
-                Skeleton_Images_drawn_dir = os.path.join('./openpose_data/Skeleton_Images_drawn', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
-                if os.path.exists(Skeleton_Images_drawn_dir):
-                    print(Skeleton_Images_drawn_dir)
-                    os.remove(Skeleton_Images_drawn_dir)
+            write_point(img_json, img_keypoints)
+        # img_dir = os.path.join('./openpose_big_data/Original_Data', img_json.split('_')[1],('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '.jpg'))
+        # if os.path.exists(img_dir):
+        #     img = cv2.imread(img_dir)
+        #     if img.shape[0]<100 or img.shape[1]<100:
+        #         if os.path.exists(img_dir):
+        #             print(img_dir)
+        #             os.remove(img_dir)
+        #         img_keypoints_dir = os.path.join('./openpose_data/Original_Skeleton_Images', (
+        #         'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+        #         if os.path.exists(img_keypoints_dir):
+        #             print(img_keypoints_dir)
+        #             os.remove(img_keypoints_dir)
+        #         keypoints_dir = os.path.join('./openpose_data/Skeleton_Images', (
+        #         'img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+        #         if os.path.exists(keypoints_dir):
+        #             print(keypoints_dir)
+        #             os.remove(keypoints_dir)
+        #         Skeleton_Images_drawn_dir = os.path.join('./openpose_data/Skeleton_Images_drawn', ('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+        #         if os.path.exists(Skeleton_Images_drawn_dir):
+        #             print(Skeleton_Images_drawn_dir)
+        #             os.remove(Skeleton_Images_drawn_dir)
     return
 
 def write_point(img_json,img_keypoints):
     colors = [ ( 84,  0,255),(  0,  0,255),(  0, 84,255),(  0,167,255),(  0,255,255),(  0,255,167),(  0,255, 84),(  0,255,  0),( 84,255,  0),(167,255,  0),(255,255,  0),(255,167,  0),(255, 84,  0),(252,  0,  0),(167,  0,255),(255,  0,167),(255,  0,255),(255,  0, 84)]
     keypoints = img_keypoints['people'][0]['pose_keypoints']
     keypoints_list = [keypoints[i:i + 3] for i in range(0, len(keypoints), 3)]
-    img_dir = os.path.join('./openpose_data/Skeleton_Images',('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
+    img_dir = os.path.join('./openpose_big_data/Skeleton_Images',('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg'))
     # print(img_dir)
     img = cv2.imread(img_dir)
     # print(img.shape)
@@ -115,7 +116,7 @@ def write_point(img_json,img_keypoints):
         if c > 0:
             # print(img[int(y), int(x)])
             cv2.circle(img_sk, (int(x),int(y)), 3, colors[i], 6)
-    cv2.imwrite(os.path.join('./openpose_data/Skeleton_Images_drawn',('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg')),img_sk)
+    cv2.imwrite(os.path.join('./openpose_big_data/Skeleton_Images_drawn',('img_' + img_json.split('_')[1] + '_' + img_json.split('_')[2] + '_rendered.jpg')),img_sk)
     # cv2.imshow('img',img_sk)
     # cv2.wait///////////Key()
 
