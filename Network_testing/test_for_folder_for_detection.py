@@ -8,17 +8,17 @@ import cv2
 import numpy as np
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--input_dir',type=str,default='/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/SSD_data/JPEGImages',help='输入文件夹位置')
-parser.add_argument('--output_dir',type=str,default='/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/detection_data/',help='输出文件夹保存位置')
+parser.add_argument('--input_dir',type=str,default='/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/shiyandata/One_person_data',help='输入文件夹位置')
+parser.add_argument('--output_dir',type=str,default='/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/shiyandata/One_person_data_crop',help='输出文件夹保存位置')
 parser.add_argument("--store", help="store_lable",action="store_true")
 parser.add_argument('--output_txt_dir',type=str,default='/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/SSD_data',help='输出标签文件保存位置')
 parser.add_argument("--caffe_path", type=str, default='/home/pro/caffe-ssd', help='path to the caffe toolbox')   # caffe:运行位置
 parser.add_argument('--gpu', dest='gpu_id', help='GPU device id to use [0]',
                         default=0, type=int)    # gpu_id，不用更改
 parser.add_argument('--net_proto_detection', type=str,
-                    default='/home/pro/WORK/action-recognition/own/MobileNet-SSD/example/MobileNetSSD_deploy.prototxt')    # deploy.prototxt 模型
+                    default='/home/pro/WORK/action-recognition/own/MobileNet-SSD/deploy.prototxt')    # deploy.prototxt 模型
 parser.add_argument('--net_weights_detection', type=str,
-                    default='/home/pro/WORK/action-recognition/own/MobileNet-SSD/example/mobilenet_iter_117000_deploy.caffemodel')     # caffemodel 模型参数
+                    default='/home/pro/WORK/action-recognition/own/MobileNet-SSD/MobileNetSSD_deploy.caffemodel')     # caffemodel 模型参数
 # parser.add_argument('--meanfile_path',type=str,default='/home/pro/WORK/action-recognition/own/imagenet_mean.binaryproto')       # 均值文件
 args = parser.parse_args()
 print args
@@ -29,20 +29,20 @@ import caffe
 CLASSES = ('background',
            'person')
 
-Category_labels_ ={ '000':'eating',
-                    '001':'drinking',
-                    '002':'calling',
-                    '003':'reading',
-                    '004':'reading',
-                    '005':'headache',
-                    '006':'toothache',
-                    '007':'chest_pain',
-                    '008':'waist_pain',
-                    '009':'stomachache',
-                    '010':'falling',
-                    '011':'others',
-                    '012':'others',
-                   }
+# Category_labels_ ={ '000':'eating',
+#                     '001':'drinking',
+#                     '002':'calling',
+#                     '003':'reading',
+#                     '004':'reading',
+#                     '005':'headache',
+#                     '006':'toothache',
+#                     '007':'chest_pain',
+#                     '008':'waist_pain',
+#                     '009':'stomachache',
+#                     '010':'falling',
+#                     '011':'others',
+#                     '012':'others',
+#                    }
 
 ##################################################################
 # 如果输出文件夹不存在,创建文件夹,
@@ -91,12 +91,11 @@ def load_picture(input_dir = args.input_dir,image_format = 'jpg'):
 ##############################################################################
 # 根据图像,保存输出结果
 def eval_picture(net,input_dir = args.input_dir,output_dir=args.output_dir,store_lable=args.store,output_txt_dir=args.output_txt_dir):
-    if store_lable:
-        Creat_Folders_(output_dir)
-    else:
-        f = open(os.path.join(output_txt_dir,'shared_label.txt'),'w')
+    # if store_lable:
+    #     Creat_Folders_(output_dir)
+    # else:
+    #     f = open(os.path.join(output_txt_dir,'shared_label.txt'),'w')
     for ins in range(len(picture_list)):
-        # print os.path.join(input_dir,picture_list[i])
         image = cv2.imread(os.path.join(input_dir,picture_list[ins]))
         # net.blobs['data'].data[...] = net._transformer.preprocess('data', image)  # 执行预处理操作，并将图片载入到blob中
         # out = net.forward()
@@ -107,7 +106,7 @@ def eval_picture(net,input_dir = args.input_dir,output_dir=args.output_dir,store
         p_box = []
         for i in range(len(box)):
             p_box_per_person = {}
-            if int(cls[i]) == 1 and conf[i] > 0.5:
+            if int(cls[i]) == 15 and conf[i] > 0.5:
                 p_box_per_person['p1'] = (box[i][0], box[i][1])
                 p_box_per_person['p2'] = (box[i][2], box[i][3])
                 p_box_per_person['height_difference'] = box[i][3] - box[i][1]
@@ -116,21 +115,38 @@ def eval_picture(net,input_dir = args.input_dir,output_dir=args.output_dir,store
                 p_box_per_person['cls'] = int(cls[i])
                 p_box.append(p_box_per_person)
 
-        if store_lable:
-            if len(p_box) != 0:
-                p_box = sorted(p_box, key=lambda e: e.__getitem__('weight_difference'), reverse=True)
-                p1 = (p_box[0]['p1'][0], p_box[0]['p1'][1])
-                p2 = (p_box[0]['p2'][0], p_box[0]['p2'][1])
-                cv2.rectangle(image, p1, p2, (0, 255, 0))
-                cv2.imwrite(os.path.join(output_dir,picture_list[ins]), image)
-
+        # if store_lable:
+        if len(p_box) != 0:
+            # print os.path.join(input_dir,picture_list[ins])
+            # print(image.shape)
+            p_box = sorted(p_box, key=lambda e: e.__getitem__('weight_difference'), reverse=True)
+            r = p_box[0]['weight_difference']*0.3/2
+            p1 = (int(max(p_box[0]['p1'][0]-r,0)), int(max(p_box[0]['p1'][1]-r,0)))
+            p2 = (int(min(p_box[0]['p2'][0]+r,image.shape[1])), int(min(p_box[0]['p2'][1]+r,image.shape[0])))
+            # print(p_box[0]['p1'][0]-r)
+            # print(p_box[0]['p1'][1]-r)
+            # print(p_box[0]['p2'][0]+r)
+            # print(p_box[0]['p2'][1]+r)
+            cropframe = image[p1[1]:p2[1],p1[0]:p2[0]]
+            # cv2.rectangle(image, p1, p2, (0, 255, 0))
+            cv2.imwrite(os.path.join(output_dir,picture_list[ins]), cropframe)
+            image_skl = cv2.imread(os.path.join('/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/shiyandata/Skeleton_data', picture_list[ins]))
+            cropframe_skl = image_skl[p1[1]:p2[1],p1[0]:p2[0]]
+            cv2.imwrite(os.path.join('/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/shiyandata/Skeleton_data_crop', picture_list[ins]), cropframe_skl)
         else:
-            if len(p_box) != 0:
-                p_box = sorted(p_box, key=lambda e: e.__getitem__('weight_difference'), reverse=True)
-                str_write = "{0} {1} {2} {3} {4} {5}\n".format(picture_list[ins],Category_labels_[picture_list[ins].split('_')[1]],max(p_box[0]['p1'][0],0), max(p_box[0]['p1'][1],0),min(p_box[0]['p2'][0],image.shape[1]), min(p_box[0]['p2'][1],image.shape[0]))
-                f.write(str_write)
-            else:
-                os.remove(os.path.join(input_dir,picture_list[ins]))
+            cv2.imwrite(os.path.join(output_dir,picture_list[ins]), image)
+            image_skl = cv2.imread(os.path.join('/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/shiyandata/Skeleton_data', picture_list[ins]))
+            cv2.imwrite(os.path.join('/media/pro/PRO/Ubuntu/Common_code/Data_preprocessing/shiyandata/Skeleton_data_crop', picture_list[ins]), image_skl)
+            # print(picture_list[ins])
+            # raise Exception()
+
+        # else:
+        #     if len(p_box) != 0:
+        #         p_box = sorted(p_box, key=lambda e: e.__getitem__('weight_difference'), reverse=True)
+        #         str_write = "{0} {1} {2} {3} {4} {5}\n".format(picture_list[ins],Category_labels_[picture_list[ins].split('_')[1]],max(p_box[0]['p1'][0],0), max(p_box[0]['p1'][1],0),min(p_box[0]['p2'][0],image.shape[1]), min(p_box[0]['p2'][1],image.shape[0]))
+        #         f.write(str_write)
+        #     else:
+        #         os.remove(os.path.join(input_dir,picture_list[ins]))
 
 ##############################################################################
 # 检测捕获的帧级图像
